@@ -6,12 +6,15 @@ import { StateDemo } from './StateDemo';
 
 function App() {
 
-  
+
   return (
     <div>
-     <PageTitle title="My Page" />
-     {/* <PageTitle title="My Other Page" /> */}
-     <StateDemo />
+      <PageTitle title="My Page" />
+      {/* <PageTitle title="My Other Page" /> */}
+      <hr />
+      <StateDemo initalValue={10} multipleOfTen={(val) => { alert(val); }} />
+      <hr />
+      <StateDemo initalValue={-100} />
     </div>
   );
 }

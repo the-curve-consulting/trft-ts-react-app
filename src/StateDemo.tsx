@@ -1,16 +1,23 @@
 import React from 'react';
 
+type TenFn = (value: number) => void;
+
+type Props = {
+  initalValue: number;
+  multipleOfTen?: TenFn;
+}
+
 type State = {
   count: number;
   oldNumbers: number[];
 };
 
-export class StateDemo extends React.Component<{}, State> {
+export class StateDemo extends React.Component<Props, State> {
 
-  constructor(props: {}) {
+  constructor(props: Props) {
     super(props);
     this.state = {
-      count: 0,
+      count: props.initalValue,
       oldNumbers: [],
     };
   }
@@ -21,6 +28,10 @@ export class StateDemo extends React.Component<{}, State> {
         count: state.count + 1,
         oldNumbers: state.oldNumbers.concat([state.count])
       })
+    }, () => {
+      if (this.props.multipleOfTen && this.state.count % 10 === 0) {
+        this.props.multipleOfTen(this.state.count);
+      }
     });
   }
 
