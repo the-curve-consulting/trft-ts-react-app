@@ -1,21 +1,20 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { EditTitle } from './EditTitle';
 import { PageTitle } from './PageTitle';
-import { StateDemo } from './StateDemo';
 
 function App() {
 
+  const [pageTitle, setPageTitle] = useState<string>("Example Page");
 
   return (
     <div>
-      <PageTitle title="My Page" />
-      {/* <PageTitle title="My Other Page" /> */}
+      <PageTitle title={pageTitle} />
       <hr />
-      <StateDemo initalValue={10} multipleOfTen={(val) => { alert(val); }} />
+      <EditTitle onChange={(name) => setPageTitle(name)} />
+      {/* <StateDemo initalValue={10} multipleOfTen={(val) => { alert(val); }} /> 
       <hr />
-      <StateDemo initalValue={-100} />
+      <StateDemo initalValue={-100} /> */}
     </div>
   );
 }
