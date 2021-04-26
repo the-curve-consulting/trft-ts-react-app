@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 
 type TenFn = (value: number) => void;
 
@@ -44,6 +45,7 @@ export class StateDemo extends React.Component<Props, State> {
           <b>Old Numbers</b>
           <pre>{JSON.stringify(this.state.oldNumbers)}</pre>
         </p>
+        <Button variant="danger">Test</Button>
       </>
     );
   }
